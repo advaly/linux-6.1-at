@@ -67,6 +67,7 @@ static struct addon_product_name product_names[] = {
 	PRODUCT_NAME(ADVALY, USBLAN, "USB/LAN"),
 	PRODUCT_NAME(ADVALY, SPICAN, "Can"),
 	PRODUCT_NAME(ADVALY, DIO, "DI/DO"),
+	PRODUCT_NAME(ADVALY, AUDIO_DIO, "Audio/DI/DO"),
 };
 
 static const char *unknownproductname = "Unknown Product";
@@ -184,6 +185,9 @@ static int addon_setup(struct addon_device *adev)
 			break;
 		case ADDON_PRODUCT_ID_ADVALY_DIO:
 			ret = addon_setup_advaly_dio(adev);
+			break;
+		case ADDON_PRODUCT_ID_ADVALY_AUDIO_DIO:
+			ret = addon_setup_advaly_audio_dio(adev);
 			break;
 		default:
 			break;

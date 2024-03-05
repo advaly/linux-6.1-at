@@ -65,3 +65,6 @@ obj-y += addon_advaly_dio.o \
 	 addon_advaly_dio_iotg_g3_intf1.dtb.o \
 	 addon_advaly_dio_iotg_g3_intf2.dtb.o \
 	 addon_advaly_dio_x1_intf1.dtb.o
+
+obj-y += addon_advaly_audio_dio.o \
+	 addon_advaly_audio_dio_iotg_g3_intf1.dtb.o

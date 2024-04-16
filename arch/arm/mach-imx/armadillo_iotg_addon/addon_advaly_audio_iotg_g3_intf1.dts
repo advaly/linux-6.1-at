@@ -1,0 +1,59 @@
+// SPDX-License-Identifier: GPL-2.0
+/*
+ * Copyright (C) 2024 ADVALY SYSTEM Inc. All Rights Reserved.
+ */
+
+#include "../../../../arch/arm/boot/dts/imx7d-pinfunc.h"
+
+/dts-v1/;
+/plugin/;
+/ {
+	fragment@0 {
+		target = <&iomuxc>;
+		__overlay__ {
+			addon-intf1 {
+				pinctrl_usbotg2: usbotg2grp {
+					fsl,pins = <
+						MX7D_PAD_LCD_RESET__GPIO3_IO4 0x00	/* GPIO_AOM1_VBUS_PWREN */
+					>;
+				};
+
+				pinctrl_ecspi2: ecspi2grp {
+					fsl,pins = <
+						MX7D_PAD_LCD_DATA20__GPIO3_IO25		0x30	/* INTF1_24 */
+						MX7D_PAD_LCD_DATA21__GPIO3_IO26		0x30	/* INTF1_25 */
+						MX7D_PAD_SD2_CLK__GPIO5_IO12		0x30	/* INTF1_47 */
+						MX7D_PAD_SD2_CMD__GPIO5_IO13		0x30	/* INTF1_48 */
+						MX7D_PAD_SD2_DATA0__GPIO5_IO14		0x30	/* INTF1_49 */
+					>;
+				};
+			};
+		};
+	};
+
+	fragment@1 {
+		target = <&regulators>;
+		__overlay__ {
+			reg_usb_otg2_vbus: reg-usb-otg2-vbus {
+				compatible = "regulator-fixed";
+				pinctrl-names = "default";
+				pinctrl-0 = <&pinctrl_usbotg2>;
+				regulator-name = "USB_OTG2_VBUS";
+				regulator-min-microvolt = <5000000>;
+				regulator-max-microvolt = <5000000>;
+				gpio = <&gpio3 4 0>;
+				enable-active-high;
+			};
+		};
+	};
+
+	fragment@2 {
+		target = <&usbotg2>;
+		__overlay__ {
+			vbus-supply = <&reg_usb_otg2_vbus>;
+			dr_mode = "host";
+			status = "okay";
+		};
+	};
+
+};

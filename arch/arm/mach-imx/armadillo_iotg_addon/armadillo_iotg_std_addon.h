@@ -77,6 +77,7 @@ struct armadillo_iotg_addon {
 #define ADDON_PRODUCT_ID_ADVALY_SPICAN		(0x0003)
 #define ADDON_PRODUCT_ID_ADVALY_DIO		(0x0004)
 #define ADDON_PRODUCT_ID_ADVALY_AUDIO_DIO	(0x0006)
+#define ADDON_PRODUCT_ID_ADVALY_AUDIO		(0x0007)
 
 #define dtb_begin(f)	__dtb_##f##_begin
 #define dtb_end(f)	__dtb_##f##_end
@@ -105,5 +106,6 @@ int addon_setup_advaly_usblan(struct addon_device *adev);
 int addon_setup_advaly_spican(struct addon_device *adev);
 int addon_setup_advaly_dio(struct addon_device *adev);
 int addon_setup_advaly_audio_dio(struct addon_device *adev);
+int addon_setup_advaly_audio(struct addon_device *adev);
 
 #endif

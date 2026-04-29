@@ -26,6 +26,10 @@ extern_dtb(addon_advaly_audio_dio_iotg_g3_intf1);
 #define PIN_DI1			(39)
 #define PIN_DI2			(35)
 #define PIN_DI3			(37)
+#define PIN_DI4			(50)
+#define PIN_DI5			(51)
+#define PIN_DI6			(52)
+#define PIN_DI7			(53)
 #define PIN_DO0			(42)
 #define PIN_DO1			(43)
 #define PIN_DO2			(44)
@@ -106,6 +110,10 @@ int addon_setup_advaly_audio_dio(struct addon_device *adev)
 		{ adev->gpios[PIN_DI1 - 1], GPIOF_DIR_IN | GPIOF_EXPORT, "DI1" },
 		{ adev->gpios[PIN_DI2 - 1], GPIOF_DIR_IN | GPIOF_EXPORT, "DI2" },
 		{ adev->gpios[PIN_DI3 - 1], GPIOF_DIR_IN | GPIOF_EXPORT, "DI3" },
+		{ adev->gpios[PIN_DI4 - 1], GPIOF_DIR_IN | GPIOF_EXPORT, "DI4" },
+		{ adev->gpios[PIN_DI5 - 1], GPIOF_DIR_IN | GPIOF_EXPORT, "DI5" },
+		{ adev->gpios[PIN_DI6 - 1], GPIOF_DIR_IN | GPIOF_EXPORT, "DI6" },
+		{ adev->gpios[PIN_DI7 - 1], GPIOF_DIR_IN | GPIOF_EXPORT, "DI7" },
 		{ adev->gpios[PIN_DO0 - 1], GPIOF_OUT_INIT_LOW | GPIOF_EXPORT, "DO0" },
 		{ adev->gpios[PIN_DO1 - 1], GPIOF_OUT_INIT_LOW | GPIOF_EXPORT, "DO1" },
 		{ adev->gpios[PIN_DO2 - 1], GPIOF_OUT_INIT_LOW | GPIOF_EXPORT, "DO2" },
